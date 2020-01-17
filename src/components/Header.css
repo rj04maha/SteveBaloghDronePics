@@ -1,0 +1,13 @@
+.header {
+  width: 100%;
+  color: #666666;
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 30px;
+  border: white solid 5px;
+  border-radius: 10px;
+}
+
+.blue {
+  color: #132472;
+}
