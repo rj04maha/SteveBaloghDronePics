@@ -1,44 +1,35 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-import ImageGrid from "./ImageGrid";
+import Home from "./Home";
 import Header from "./Header";
-//import Spinner from "./Spinner";
+import AllPhotos from "./AllPhotos";
+import About from "./About";
+import Contact from "./Contact";
+import Cart from "./Cart";
+import Checkout from "./Checkout";
+import Footer from "./Footer";
+
+const content = {
+  paddingBottom: "6rem"
+};
 
 class App extends React.Component {
   render() {
     return (
-      <div>
+      <div style={content}>
         <BrowserRouter>
           <Header />
-          <div>
-            <Route path="/" exact component={ImageGrid} />
-          </div>
+          <Route path="/" exact component={Home} />
+          <Route path="/photos" exact component={AllPhotos} />
+          <Route path="/about" exact component={About} />
+          <Route path="/contact" exact component={Contact} />
+          <Route path="/cart" exact component={Cart} />
+          <Route path="/checkout" exact component={Checkout} />
         </BrowserRouter>
+        <Footer />
       </div>
     );
   }
-  /* state = { images: [], loading: true, selectedImages: [] };
-
-  async componentDidMount() {
-    const response = await upsplash.get("/search/photos", {
-      params: { query: "cats", per_page: "30" }
-    });
-
-    this.setState({ images: response.data.results });
-    this.setState({ loading: false });
-  }
-
-  render() {
-    if (!this.state.loading) {
-      return (
-        <div>
-          <Header></Header>
-          <ImageGrid images={this.state.images} />
-        </div>
-      );
-    }
-    return <Spinner></Spinner>;
-  } */
 }
 
 export default App;

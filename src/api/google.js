@@ -1,4 +1,4 @@
-import axios from "axios";
+/* import axios from "axios";
 
 export default axios.create({
   baseURL: "https://www.googleapis.com/auth/drive.photos.readonly",
@@ -6,7 +6,7 @@ export default axios.create({
     Authorization:
       "Client-ID 273294683312-jprngh4ne39qv25clg0b9cdmquq3bp9g.apps.googleusercontent.com"
   }
-});
+}); */
 
 //client ID 273294683312-jprngh4ne39qv25clg0b9cdmquq3bp9g.apps.googleusercontent.com
 //client secret lqUJ1JD3YCOWmyARTpZVLHnC

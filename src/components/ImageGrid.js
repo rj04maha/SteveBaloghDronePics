@@ -16,7 +16,11 @@ class ImageGrid extends React.Component {
   }
 
   render() {
-    return <div className="image-list">{this.renderList()}</div>;
+    return (
+      <div className="ui container">
+        <div className="image-list">{this.renderList()}</div>
+      </div>
+    );
   }
 }
 
