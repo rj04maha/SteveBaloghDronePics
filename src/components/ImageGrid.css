@@ -40,3 +40,7 @@
 .icon-button:hover {
   cursor: pointer;
 }
+
+.icon-button-cart {
+  display: block;
+}

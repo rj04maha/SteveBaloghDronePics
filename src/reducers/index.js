@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 import photoReducers from "./photosReducers";
-import selectPhotoReducer from "./selectPhotoReducer";
+import cartReducer from "./cartReducer";
 
 export default combineReducers({
   photos: photoReducers,
-  selectPhoto: selectPhotoReducer
+  cart: cartReducer
 });

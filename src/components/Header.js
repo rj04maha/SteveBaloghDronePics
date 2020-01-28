@@ -17,19 +17,26 @@ const Header = () => {
                 ></img>
               </Link>
             </div>
-            <div className="right menu">
-              <Link to="/photos" className="menu-link item">
-                Photos
-              </Link>
-              <Link to="/about" className="menu-link item">
-                About
-              </Link>
-              <Link to="/contact" className="menu-link item">
-                Contact
-              </Link>
-              <Link to="/cart" className="menu-link item">
-                <i class="cart large icon"></i>
-              </Link>
+            <div className="right-menu">
+              <div className="right menu">
+                <Link to="/photos" className="menu-link item">
+                  Photos
+                </Link>
+                <Link to="/about" className="menu-link item">
+                  About
+                </Link>
+                <Link to="/contact" className="menu-link item">
+                  Contact
+                </Link>
+                <Link to="/cart" className="menu-link item">
+                  <i className="cart large icon"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="mobile-menu">
+              <div className="right menu">
+                <i className="bars icon"></i>
+              </div>
             </div>
           </div>
         </div>

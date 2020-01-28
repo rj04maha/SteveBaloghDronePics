@@ -15,7 +15,7 @@ const Home = () => {
           <div className="big">Check out Steve Balogh's Drone Photos</div>
           <Link to="/photos">
             <button className="ui inverted button">
-              Check them out here<i class="right chevron icon"></i>
+              Check them out here<i className="right chevron icon"></i>
             </button>
           </Link>
           <p className="small">
@@ -28,11 +28,11 @@ const Home = () => {
         Find more information about this
       </h4>
       <div className="ui container">
-        <div class="ui three stackable cards">
-          <div class="card">
-            <div class="content">
-              <div class="header">How it works</div>
-              <div class="description">
+        <div className="ui three stackable cards">
+          <div className="card">
+            <div className="content">
+              <div className="header">How it works</div>
+              <div className="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -43,16 +43,16 @@ const Home = () => {
               </div>
             </div>
             <Link to="/photos">
-              <div class="ui bottom attached button">
-                <i class="image icon"></i>
+              <div className="ui bottom attached button">
+                <i className="image icon"></i>
                 Look through images
               </div>
             </Link>
           </div>
-          <div class="card">
-            <div class="content">
-              <div class="header">Why I am raising money</div>
-              <div class="description">
+          <div className="card">
+            <div className="content">
+              <div className="header">Why I am raising money</div>
+              <div className="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -63,16 +63,16 @@ const Home = () => {
               </div>
             </div>
             <Link to="/about">
-              <div class="ui bottom attached button">
-                <i class="info circle icon"></i>
+              <div className="ui bottom attached button">
+                <i className="info circle icon"></i>
                 Learn more
               </div>
             </Link>
           </div>
-          <div class="card">
-            <div class="content">
-              <div class="header">If you want to get in touch</div>
-              <div class="description">
+          <div className="card">
+            <div className="content">
+              <div className="header">If you want to get in touch</div>
+              <div className="description">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -83,8 +83,8 @@ const Home = () => {
               </div>
             </div>
             <Link to="/contact">
-              <div class="ui bottom attached button">
-                <i class="envelope icon"></i>
+              <div className="ui bottom attached button">
+                <i className="envelope icon"></i>
                 Contact me
               </div>
             </Link>

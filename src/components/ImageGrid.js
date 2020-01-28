@@ -1,17 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchPhotos } from "../actions";
+import { addToCart } from "../actions";
 import ImageCard from "./ImageCard";
 import "./ImageGrid.css";
 
 class ImageGrid extends React.Component {
-  componentDidMount() {
-    this.props.fetchPhotos();
-  }
+  addToCart = photo => {
+    this.props.addToCart(photo);
+  };
 
   renderList() {
     return this.props.photos.map(image => {
-      return <ImageCard key={image.id} image={image} />;
+      return (
+        <ImageCard
+          key={image.id}
+          image={image}
+          addToCart={this.addToCart}
+          //inCart={
+          //this.props.cart.length > 0 &&
+          //this.props.cart.filter(e => e.image.id === image.id).length > 0
+          //}
+        />
+      );
     });
   }
 
@@ -25,7 +35,15 @@ class ImageGrid extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { photos: state.photos };
+  return { photos: state.photos, cart: state.cart };
 };
 
-export default connect(mapStateToProps, { fetchPhotos })(ImageGrid);
+const mapDispatchToProps = dispatch => {
+  return {
+    addToCart: photo => {
+      dispatch(addToCart(photo));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ImageGrid);
