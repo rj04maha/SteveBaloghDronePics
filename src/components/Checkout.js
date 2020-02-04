@@ -3,7 +3,7 @@ import React from "react";
 const Checkout = () => {
   return (
     <div className="ui container space">
-      <h2 class="ui huge header">Checkout</h2>
+      <h2 className="ui huge header">Checkout</h2>
       <div className="ui unstackable three steps">
         <div className="active step">
           <i className="address book icon"></i>

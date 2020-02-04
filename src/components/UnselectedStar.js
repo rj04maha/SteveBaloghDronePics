@@ -1,5 +1,5 @@
 import React from "react";
 
 export default () => {
-  return <i className="circular inverted red star large icon"></i>;
+  return <i className="circular inverted white star large outline icon"></i>;
 };

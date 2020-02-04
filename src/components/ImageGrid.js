@@ -1,12 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addToCart } from "../actions";
+import { addToCart, removeFromCart } from "../actions";
 import ImageCard from "./ImageCard";
 import "./ImageGrid.css";
 
 class ImageGrid extends React.Component {
   addToCart = photo => {
     this.props.addToCart(photo);
+  };
+
+  removeFromCart = photo => {
+    this.props.removeFromCart(photo.id);
   };
 
   renderList() {
@@ -16,10 +20,7 @@ class ImageGrid extends React.Component {
           key={image.id}
           image={image}
           addToCart={this.addToCart}
-          //inCart={
-          //this.props.cart.length > 0 &&
-          //this.props.cart.filter(e => e.image.id === image.id).length > 0
-          //}
+          removeFromCart={this.removeFromCart}
         />
       );
     });
@@ -42,6 +43,9 @@ const mapDispatchToProps = dispatch => {
   return {
     addToCart: photo => {
       dispatch(addToCart(photo));
+    },
+    removeFromCart: photoId => {
+      dispatch(removeFromCart(photoId));
     }
   };
 };

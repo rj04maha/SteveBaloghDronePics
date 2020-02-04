@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
+import { fetchPhotos } from "../actions";
 import Home from "./Home";
 import Header from "./Header";
 import AllPhotos from "./AllPhotos";
@@ -15,6 +17,9 @@ const content = {
 };
 
 class App extends React.Component {
+  componentDidMount() {
+    this.props.fetchPhotos();
+  }
   render() {
     return (
       <div style={content}>
@@ -33,4 +38,8 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return { photos: state.photos };
+};
+
+export default connect(mapStateToProps, { fetchPhotos })(App);

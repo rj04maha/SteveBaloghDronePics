@@ -1,52 +1,67 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import ImageCardCart from "./ImageCardCart";
+import { removeFromCart } from "../actions";
+import "./CartView.css";
 
 class CartView extends React.Component {
+  emptyCart = e => {
+    e.preventDefault();
+    this.props.cart.map(image => {
+      //console.log("trying to empty cart " + this.image.photo.inCart);
+      this.props.removeFromCart(image.photo.id);
+      return (image.photo.inCart = false);
+    });
+  };
+
   getCart() {
-    const cart =
+    const cartTotal =
       this.props.cart.length > 0 ? (
         <div>
-          {this.props.cart.map(image => {
-            return (
-              <div key={image.photo.id}>
-                <ImageCardCart pic={image} />
-              </div>
-            );
-          })}
+          <div className="ui tiny images">
+            <button
+              onClick={this.emptyCart}
+              className="ui right floated basic red button"
+            >
+              Empty cart
+            </button>
+            {this.props.cart.map(image => {
+              return (
+                <img
+                  className="ui image"
+                  src={image.photo.urls.regular}
+                  alt={image.photo.description}
+                  key={image.photo.id}
+                />
+              );
+            })}
+            }
+          </div>
+          <Link to="/cart">
+            <button className="fluid ui button">
+              Change quantity of photos & checkout
+            </button>
+          </Link>
         </div>
       ) : (
         <div>
-          <p>Cart is empty</p>
+          <h4 className="ui horizontal divider header">
+            Please select which images you would like to order
+          </h4>
         </div>
       );
 
-    return <div>{cart}</div>;
+    return <div>{cartTotal}</div>;
   }
 
   render() {
     return (
       <div className="ui-sticky">
-        <div className="ui segment">
-          <h2>Your shopping cart</h2>
-          {this.getCart()}
-        </div>
+        <div className="ui segment">{this.getCart()}</div>
       </div>
     );
   }
 }
-/*     // if there is something in their cart
-    if (1 === 2) {
-      return <p>something in your cart</p>;
-    }
-    // if cart is empty
-    else {
-      return (
-        <h4 className="ui horizontal divider header">
-          Please select which images you would like to order
-        </h4>
-      );
-    } */
 
 const mapStateToProps = state => {
   return {
@@ -54,4 +69,12 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(CartView);
+const mapDispatchToProps = dispatch => {
+  return {
+    removeFromCart: photoId => {
+      dispatch(removeFromCart(photoId));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartView);

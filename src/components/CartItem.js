@@ -10,11 +10,11 @@ const CartItem = props => {
         <input type="number" name="digital_quantity" min="0" max="100" />
       </td>
       <td data-label="Printed Copy">
-        <table class="ui very basic striped table">
+        <table className="ui very basic striped table">
           <tbody>
             <tr>
               <td>
-                <div class="ui checkbox">
+                <div className="ui checkbox">
                   <input type="checkbox" name="example" />
                   <label>4 x 6 </label>
                 </div>
@@ -32,7 +32,7 @@ const CartItem = props => {
             </tr>
             <tr>
               <td>
-                <div class="ui checkbox">
+                <div className="ui checkbox">
                   <input type="checkbox" name="example" />
                   <label>6 x 11 </label>
                 </div>
@@ -50,7 +50,7 @@ const CartItem = props => {
             </tr>
             <tr>
               <td>
-                <div class="ui checkbox">
+                <div className="ui checkbox">
                   <input type="checkbox" name="example" />
                   <label>20 x 30 </label>
                 </div>

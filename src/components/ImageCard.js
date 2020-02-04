@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import UnselectedStar from "./UnselectedStar";
 import SelectedStar from "./SelectedStar";
 
@@ -9,18 +10,24 @@ class ImageCard extends React.Component {
     this.imageRef = React.createRef();
   }
 
-  state = {
-    inCart: this.props.inCart
-  };
+  inCart =
+    this.props.cart.length > 0 &&
+    this.props.cart.filter(e => e.photo.id === this.props.image.id).length > 0;
 
   addToCart = e => {
     e.preventDefault();
 
     this.props.addToCart(this.props.image);
 
-    this.setState({
-      inCart: true
-    });
+    this.inCart = true;
+  };
+
+  removeFromCart = e => {
+    e.preventDefault();
+
+    this.props.removeFromCart(this.props.image);
+
+    this.inCart = false;
   };
 
   componentDidMount() {
@@ -32,18 +39,6 @@ class ImageCard extends React.Component {
     const spans = Math.ceil(height / 10) + 1;
     this.setState({ spans });
   };
-
-  checkIfInCart() {
-    // if in cart, display selected star (hover or not hovered)
-
-    // if not in cart and hovered, display unselected star
-
-    // if in cart, and clicks on button, slow unselected star
-
-    // if not in cart, clicks on button,
-    return <UnselectedStar />;
-    // if not in cart and not hovered, display nothing
-  }
 
   render() {
     const { description, urls, id } = this.props.image;
@@ -57,13 +52,16 @@ class ImageCard extends React.Component {
             key={id}
           />
           <div className="edit">
-            {this.state.inCart ? (
-              <button className="icon-button">
-                <UnselectedStar />
+            {this.inCart ? (
+              <button
+                className="icon-button-cart"
+                onClick={this.removeFromCart}
+              >
+                <SelectedStar />
               </button>
             ) : (
-              <button className="icon-button-cart" onClick={this.addToCart}>
-                <SelectedStar />
+              <button className="icon-button" onClick={this.addToCart}>
+                <UnselectedStar />
               </button>
             )}
           </div>
@@ -72,4 +70,8 @@ class ImageCard extends React.Component {
     );
   }
 }
-export default ImageCard;
+
+const mapStateToProps = state => {
+  return { cart: state.cart };
+};
+export default connect(mapStateToProps)(ImageCard);

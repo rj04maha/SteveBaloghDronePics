@@ -15,9 +15,7 @@
   display: inline-block;
 }
 
-.card:hover .edit {
-  display: block;
-}
+/* Button styling */
 
 .edit {
   padding-top: 7px;
@@ -25,22 +23,16 @@
   position: absolute;
   right: 0;
   top: 0;
-  display: none;
-}
-
-.edit a {
-  color: #000;
 }
 
 .icon-button {
   background-color: Transparent;
   border: none;
-}
-
-.icon-button:hover {
   cursor: pointer;
 }
 
 .icon-button-cart {
-  display: block;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
 }
